@@ -16,6 +16,7 @@ export interface IChangelogOptions {
     'filter'?: string
     'assets'?: string | string[]
     'description'?: string
+    'draft'?: boolean
 }
 
 export type ResolvedChangelogOptions = Required<IChangelogOptions>
@@ -61,6 +62,7 @@ interface IUserConfigBase {
     overrideTypes?: boolean
     assets?: string | string[]
     description?: string
+    draft?: boolean
 }
 
 type ExclusiveConfig<T> = T extends { include: any }
@@ -92,4 +94,9 @@ export interface IReleaseResult {
     target_commitish: string
     name: string
     body: string
+}
+
+export interface IReleaseAsset {
+    id: number
+    name: string
 }
