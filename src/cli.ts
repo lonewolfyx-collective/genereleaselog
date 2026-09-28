@@ -3,7 +3,7 @@ import { blue, cyan, dim, red, yellow } from 'ansis'
 import cac from 'cac'
 import { writeChangeLog } from '@/src/changelog.ts'
 import { generate } from '@/src/generate.ts'
-import { createRelease, updateReleaseAssets } from '@/src/github.ts'
+import { createDraftRelease, createRelease, publishRelease, updateReleaseAssets, verifyReleaseAssets } from '@/src/github.ts'
 import { version } from '../package.json'
 
 const cli = cac('genereleaselog')
@@ -16,6 +16,7 @@ cli.command('')
     .option('--filter <filter>', 'Filter Conventional Commits Type', { default: '' })
     .option('--assets <assets...>', 'Files to upload as assets to the release. Use quotes to prevent shell glob expansion, e.g., "--assets \'dist/*.js\'"')
     .option('--description <description>', 'Changelog release placeholder description', { default: '' })
+    .option('--draft', 'Create the release as a draft and leave it unpublished')
     .action(async (options: IChangelogOptions) => {
         console.log()
         console.log(dim(`genereleaselog `) + dim(`v${version}`))
@@ -48,10 +49,16 @@ cli.command('')
             process.exit(1)
         }
 
-        const release = await createRelease(config, markdown)
+        if (config.assets) {
+            const release = await createDraftRelease(config, markdown)
+            const uploadedAssets = await updateReleaseAssets(config, release)
+            await verifyReleaseAssets(config, release, uploadedAssets)
 
-        if (config.assets && config) {
-            await updateReleaseAssets(config, release)
+            if (!config.draft)
+                await publishRelease(config, release)
+        }
+        else {
+            await createRelease(config, markdown)
         }
     })
 

@@ -15,6 +15,10 @@ npx genereleaselog --token=GITHUB_TOKEN
 
 - `--from`: Start commit reference. When not provided, **latest git tag** will be used as default.
 - `--to`: End commit reference. When not provided, **latest commit in HEAD** will be used as default.
+- `--assets`: Files or glob patterns to upload. Releases with assets are created as drafts, verified after upload, and then published.
+- `--draft`: Leave the release as a draft after uploading and verifying its assets.
+
+When `--assets` is provided, the release is published only after every asset upload succeeds and the uploaded files have been verified through the GitHub API. If any step fails, the command exits with an error and the release remains a draft.
 
 ### Example Workflow: `.github/workflows/release.yml`
 

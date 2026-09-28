@@ -49,6 +49,7 @@ const defaultConfig = {
     to: '',
     cwd: '',
     version: '',
+    draft: false,
 } satisfies IChangelogOptions
 
 export function defineConfig(config: IUserConfig): IUserConfig {
