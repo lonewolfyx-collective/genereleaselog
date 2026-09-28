@@ -1,14 +1,14 @@
 {
-    "extends": "@lonewolfyx/tsconfig/tsconfig.lib.json",
-    "compilerOptions": {
-        "baseUrl": "./",
-        "paths": {
-            "@/*": [
-                "./*"
-            ]
-        }
-    },
-    "include": [
-        "src/**/*.ts"
-    ]
+  "extends": "@lonewolfyx/tsconfig/tsconfig.lib.json",
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@/*": [
+        "./*"
+      ]
+    }
+  },
+  "include": [
+    "src/**/*.ts"
+  ]
 }
