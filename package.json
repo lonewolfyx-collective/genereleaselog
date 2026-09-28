@@ -6,9 +6,9 @@
   "description": "Generate the Release log in accordance with the GitHub Conventional Commits",
   "author": "lonewolfyx <olddrivero.king@qq.com>",
   "license": "MIT",
-  "homepage": "https://github.com/ScaffoldCore/genereleaselog",
+  "homepage": "https://github.com/lonewolfyx-collective/genereleaselog",
   "bugs": {
-    "url": "https://github.com/ScaffoldCore/genereleaselog/issues"
+    "url": "https://github.com/lonewolfyx-collective/genereleaselog/issues"
   },
   "keywords": [
     "github",
