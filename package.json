@@ -7,6 +7,10 @@
   "author": "lonewolfyx <olddrivero.king@qq.com>",
   "license": "MIT",
   "homepage": "https://github.com/lonewolfyx-collective/genereleaselog",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lonewolfyx-collective/genereleaselog.git"
+  },
   "bugs": {
     "url": "https://github.com/lonewolfyx-collective/genereleaselog/issues"
   },
