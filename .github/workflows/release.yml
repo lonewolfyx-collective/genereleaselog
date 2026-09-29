@@ -12,19 +12,23 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
       - uses: actions/setup-node@v4
         with:
           node-version: lts/*
+          
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6
 
-      - run: npm install
+      - run: pnpm install
 
-      - name: Debug TypeScript files
-        run: npx tsc --noEmit --project tsconfig.json
+      - uses: lonewolfyx-workflows/npm-public-actions@main
+        with:
+          package-manager: pnpm
 
-      - run: npm run git:release
+      - run: pnpm run git:release
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
