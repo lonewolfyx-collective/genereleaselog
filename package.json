@@ -1,7 +1,7 @@
 {
   "name": "genereleaselog",
   "type": "module",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "packageManager": "pnpm@10.15.1",
   "description": "Generate the Release log in accordance with the GitHub Conventional Commits",
   "author": "lonewolfyx <olddrivero.king@qq.com>",
