@@ -13,18 +13,7 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
-        with:
-          fetch-depth: 0
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: lts/*
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v6
-
-      - run: pnpm install
+      - uses: actions/checkout@v7
 
       - uses: lonewolfyx-workflows/npm-public-actions@main
         with:

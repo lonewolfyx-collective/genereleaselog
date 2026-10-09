@@ -1,0 +1,33 @@
+name: autofix.ci
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  code:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v6
+
+      - name: Set node
+        uses: actions/setup-node@v7
+        with:
+          node-version: lts/*
+          cache: pnpm
+
+      - name: 📦 Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: 🔠 Fix lint errors
+        run: pnpm lint --fix
+
+      - uses: autofix-ci/action@635ffb0c9798bd160680f18fd73371e355b85f27 # 635ffb0c9798bd160680f18fd73371e355b85f27
