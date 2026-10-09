@@ -117,7 +117,7 @@ export function groupByCommits(commits: IParseCommit[], options: ResolvedChangel
   const BREAKING_KEY = 'breaking'
 
   const categories: Record<string, Category> = {
-    [BREAKING_KEY]: { title: 'Breaking Changes', scopes: {} },
+    [BREAKING_KEY]: { title: '💥 Breaking Changes', scopes: {} },
     ...Object.fromEntries(
       Object.entries(configTypes).map(([type, config]) => [
         type,
