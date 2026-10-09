@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: [label title name]
+    url: [label link]
+    about: [label description]
